@@ -1,0 +1,22 @@
+@echo off
+
+::RESIZE WINDOW
+mode con: cols=120 lines=30
+
+::INITIALIZE UTF-8
+chcp 65001
+
+title Booting
+
+cls
+echo ------------------------------------------------------DOS-----------------------------------------------------------
+echo.
+ping -n 5 localhost >nul
+
+systeminfo
+cd..
+cd system
+ren os.instf os.bat
+start os.bat
+exit
+

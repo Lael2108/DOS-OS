@@ -1,0 +1,71 @@
+ @echo off
+color 0a
+title DOS Os= 0.0.1
+echo Finding Kernel.........
+ping localhost -n 10 >nul
+echo Kernel Found! Booting DOS OS
+ping localhost -n 5 >nul
+pause
+
+cls            
+echo what is your name?
+set/p name=
+echo.
+cls
+echo HELLO! %name%
+echo.
+pause
+
+:menu
+cls
+echo What Would You Like To Do? Type the number.
+echo.
+echo 1.System Info 2.Calc 
+
+set /p input=
+if %input% == 1 goto info
+if %input% == 2 goto calc 
+
+:info
+
+cls
+echo.=======================
+echo     DOS____-____OS
+echo.=======================
+systeminfo
+echo.========================
+echo     @Copyright Lael.inc
+echo.========================
+echo.
+echo Wanna check for update?
+
+echo  1. to check for update 
+echo  2. Menu
+
+set /p check= 
+
+if %check% == 1 goto update
+
+if %check% == 2 goto menu
+
+
+
+
+     
+:update 
+cls
+
+echo Checking for new version /Update.............
+echo.
+pause
+cls
+echo.
+echo no update available,Try Again after some time.
+echo.
+pause
+goto menu
+
+:calc
+cd App
+start calc.bat
+goto menu
